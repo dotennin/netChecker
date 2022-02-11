@@ -4,7 +4,7 @@ import http from 'http'
 
 let currentIp: string | undefined = undefined
 const ipCheck = () => {
-  http.get({ host: 'api.ipify.org', port: 80, path: '/' }, function(resp) {
+  http.get({ host: 'ifconfig.me', port: 80, path: '/' }, function(resp) {
     resp.on('data', function(ip) {
       console.log('My public IP address is: ' + ip)
       if (!currentIp) {
