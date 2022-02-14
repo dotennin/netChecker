@@ -19,6 +19,19 @@ const ipCheck = () => {
     })
   })
 }
-ipCheck()
 
-setInterval(ipCheck, 5000)
+let interval: NodeJS.Timeout
+function main() {
+  ipCheck()
+
+  try {
+    interval = setInterval(ipCheck, 5000)
+  } catch (e) {
+    console.error(e)
+
+    clearInterval(interval)
+    main()
+  }
+}
+
+main()
